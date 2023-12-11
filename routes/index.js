@@ -17,5 +17,7 @@ router.post('/delete/:id', controllers.postDeletePersona);
 router.get('/buscar', controllers.buscarPersona);
 router.post('/resultados', controllers.buscarPersonaResultados);
 
+router.get('/oficinas', controllers.tablaOficina);
+
 
 module.exports = router;

@@ -95,6 +95,30 @@ const buscarPersonaResultados = (req, res, next) => {
         res.render('resultados', { personas: rows, title: "Resultados" })
     });
 }
+const tablaOficina = (req, res, next) => {
+    const db = req.app.get("db");
+    const keyword = req.query.keyword;
+
+    const query = `
+        SELECT persona.nombre, persona.email, oficina.denominacion
+        FROM persona
+        JOIN oficina ON persona.id= oficina.id
+    `;
+    
+    db.query(query, (err, resultados) => {
+        if (err) {
+            console.error('Error al ejecutar la consulta:', err);
+            res.status(500).send('Error interno en el servidor');
+        } else {
+            // Renderiza la vista 'oficinas' con los resultados 
+            res.render('oficinas', { title: 'Oficinas', resultados: resultados });
+        }
+    });
+};
+
+   
+
+
 
 
 module.exports = {
@@ -106,5 +130,7 @@ module.exports = {
     getDeletePersona,
     postDeletePersona,
     buscarPersona,
-    buscarPersonaResultados
+    buscarPersonaResultados,
+
+    tablaOficina
 };

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('./head.ejs') %>
+
+    <body>
+        <%- include('./navigation.ejs') %>
+       
+        <h1>
+            <%= title %>
+        </h1>
+        <ul>
+            <% resultados.forEach(function(resultado) { %>
+                <li>
+                    <strong>Nombre:</strong> <%= resultado.nombre %><br>
+                    <strong>Email:</strong> <%= resultado.email %><br>
+                    <strong>Oficina:</strong> <%= resultado.denominacion %><br>
+                </li>
+            <% }); %>
+        </ul>
+            
+            
+    </body>
+
+</html>
+
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
