@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Primera pagina</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <style> body{background-color: cadetblue;}</style>
-  </head>
-  <body>
-    <h1>TASKS</h1>
-    
-  </body>
+<%- include('./head.ejs') %>
+
+    <body>
+        <%- include('./navigation.ejs') %>
+            
+            <%- include('./agregar.ejs') %>   
+            
+            
+    </body>
+
 </html>

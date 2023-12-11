@@ -1,8 +1,47 @@
+<!DOCTYPE html>
 <html>
+
 <%- include('./head.ejs') %>
 
     <body>
-        <%= mensaje %>
+        <%- include('./navigation.ejs') %>
+        <h2>Personal</h2>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-dark table-bordered table-hover">
+                        <div class="container">
+                            <% personas.forEach(element => { %>
+                                <div class="row">
+                                    <div class="col-md-1 mt-4">
+                                        <%= element.id %>
+                                    </div>
+                                    <div class="col-md-3 mt-4">
+                                        <%= element.nombre %>
+                                    </div>
+                                    <div class="col-md-4 mt-4">
+                                        <%= element.email %>
+                                    </div>
+                                    <div class="col-md-4 mt-4">
+                                        <a class="btn btn-dark" href="/edit/<%= element.id %>" role="button">Editar</a>
+                                        <a class="btn btn-dark" href="/delete/<%= element.id %>" role="button">Borrar</a>
+                                    </div>
+                                </div>
+                                <% }) %>
+            
+                        </div>
+            
+            
+            
+            
     </body>
 
 </html>
+
+
+
+
+            </table>
+        </div>
+    </div>
+</div>
