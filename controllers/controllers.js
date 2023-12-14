@@ -105,13 +105,13 @@ const tablaOficina = (req, res, next) => {
         JOIN oficina ON persona.id= oficina.id
     `;
     
-    db.query(query, (err, resultados) => {
+    db.query(query, (err, datosJuntos) => {
         if (err) {
             console.error('Error al ejecutar la consulta:', err);
             res.status(500).send('Error interno en el servidor');
         } else {
             // Renderiza la vista 'oficinas' con los resultados 
-            res.render('oficinas', { title: 'Oficinas', resultados: resultados });
+            res.render('personas', { title: 'Oficinas', personas: "lista" });
         }
     });
 };

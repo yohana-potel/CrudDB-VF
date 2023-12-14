@@ -18,7 +18,7 @@ router.get('/buscar', controllers.buscarPersona);
 router.post('/resoficina', controllers.buscarPersonaResultados);
 
 router.get('/oficinas', controllers.listoficina);//funciona
-//router.get('/oficinas', controllers.tablaOficina);
+router.get('/datosJuntos', controllers.tablaOficina);
 router.get('/add', controllers.agregarOficina );//funciona
 router.post('/agregar2', controllers.postAgregarOficina );//funciona
 router.get('/del/:id',controllers.getDeleteOficina);//funciona
