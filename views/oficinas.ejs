@@ -9,16 +9,44 @@
         <h1>
             <%= title %>
         </h1>
-        <ul>
-            <% resultados.forEach(function(resultado) { %>
-                <li>
-                    <strong>Nombre:</strong> <%= resultado.nombre %><br>
-                    <strong>Email:</strong> <%= resultado.email %><br>
-                    <strong>Oficina:</strong> <%= resultado.denominacion %><br>
-                </li>
-            <% }); %>
-        </ul>
-            
+
+        <div class="container ">
+            <div class="row">
+                <div class="col-md-7">
+                    <table class="table table-dark table-bordered table-hover">
+                        <thead>
+                            <tr>
+                              <td>Nº</td>
+                              <td>Denominacion</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% oficinas.forEach(element => { %>
+                                <tr>
+                                    <td><%= element.id %></td>
+                                    <td><%= element.denominacion %></td>
+                                    <td class="d-flex gap-2">
+                                        <a class="btn btn-dark" href="/del/<%= element.id %>" role="button">Borrar</a>
+                                    </td>
+                                </tr>
+                                
+                                <% }) %>
+                        </tbody>
+                        
+                    </table>
+                    <div>
+                        <%- include('./add.ejs') %>
+                    </div>
+
+
+                </div>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        
             
     </body>
 
@@ -31,3 +59,6 @@
         </div>
     </div>
 </div>
+
+
+

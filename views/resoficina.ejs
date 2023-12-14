@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<%- include('./head.ejs') %>
+
+    <body>
+        <h1>Listado Oficinas</h1>
+        <ul>
+            <% personas.forEach(element => { %>
+                <li>
+                    <%= element.nombre  %>
+                </li>
+                <li>
+                    <%= element.email  %>
+                </li>
+                
+                <% }) %>
+        </ul>
+    </body>

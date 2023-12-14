@@ -15,9 +15,14 @@ router.post('/update/:id', controllers.postUpdatePersona);
 router.get('/delete/:id', controllers.getDeletePersona);
 router.post('/delete/:id', controllers.postDeletePersona);
 router.get('/buscar', controllers.buscarPersona);
-router.post('/resultados', controllers.buscarPersonaResultados);
+router.post('/resoficina', controllers.buscarPersonaResultados);
 
-router.get('/oficinas', controllers.tablaOficina);
+router.get('/oficinas', controllers.listoficina);//funciona
+//router.get('/oficinas', controllers.tablaOficina);
+router.get('/add', controllers.agregarOficina );//funciona
+router.post('/agregar2', controllers.postAgregarOficina );//funciona
+router.get('/del/:id',controllers.getDeleteOficina);//funciona
+router.post('/del/:id', controllers.postDeleteOficina);//funciona
 
 
 module.exports = router;

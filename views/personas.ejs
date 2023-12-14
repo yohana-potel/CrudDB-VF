@@ -6,42 +6,47 @@
     <body>
         <%- include('./navigation.ejs') %>
         <h2>Personal</h2>
-        <div class="container mt-4">
+
+        <div class="container ">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-7">
                     <table class="table table-dark table-bordered table-hover">
-                        <div class="container">
+                        <thead>
+                            <tr>
+                                <td>n°</td>
+                                <td>Nombre</td>
+                                <td>Email</td>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
                             <% personas.forEach(element => { %>
-                                <div class="row">
-                                    <div class="col-md-1 mt-4">
-                                        <%= element.id %>
-                                    </div>
-                                    <div class="col-md-3 mt-4">
-                                        <%= element.nombre %>
-                                    </div>
-                                    <div class="col-md-4 mt-4">
-                                        <%= element.email %>
-                                    </div>
-                                    <div class="col-md-4 mt-4">
+                                <tr>
+                                    <td><%= element.id %></td>
+                                    <td><%= element.nombre %></td>
+                                    <td><%= element.email %></td>
+                                    <td class="d-flex gap-2">
                                         <a class="btn btn-dark" href="/edit/<%= element.id %>" role="button">Editar</a>
                                         <a class="btn btn-dark" href="/delete/<%= element.id %>" role="button">Borrar</a>
-                                    </div>
-                                </div>
+                                    </td>
+                                </tr>
                                 <% }) %>
-            
-                        </div>
-            
-            
-            
-            
-    </body>
 
-</html>
+                        </tbody>
+                       
+                    </table>
 
 
+                </div>
+                <div class="col-md-5">
+                    <%- include('./agregar.ejs') %>
+                </div>
 
-
-            </table>
+                
+                
+            </div>
         </div>
-    </div>
-</div>
+
+
+
+        

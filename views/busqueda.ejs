@@ -4,14 +4,17 @@
 <%- include('./head.ejs') %>
 
     <body>
-        <h1>
-            <%= title %>
-        </h1>
-        <form action="/resultados" method="post">
 
-            <input class="form-control me-2" type="search" placeholder="Buscar aqui " aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Buscar</button>
-        </form>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <form action="/resoficina" class="d-flex" role="search" method="post">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+              </form>
+            </div>
+          </nav>
+            
+        
     </body>
 
     

@@ -92,7 +92,7 @@ const buscarPersonaResultados = (req, res, next) => {
     const query = 'SELECT * FROM persona WHERE nombre LIKE ?';
     db.query(query, [`%${keyword}%`], (err, rows) => {
         if (err) throw err;
-        res.render('resultados', { personas: rows, title: "Resultados" })
+        res.render('resoficina', { personas: rows, title: "Resultados" })
     });
 }
 const tablaOficina = (req, res, next) => {
@@ -116,10 +116,62 @@ const tablaOficina = (req, res, next) => {
     });
 };
 
-   
 
 
 
+
+const agregarOficina = function(req, res, next) {
+    res.render('add', { title: "AgregarOfi" });
+}
+
+const postAgregarOficina = function(req, res, next) {
+    const db = req.app.get("db");
+    const denominacion = req.body.denominacion;
+    const id = req.body.id;
+    const query = "INSERT into oficina (denominacion,id ) VALUES (?, ?)";
+    db.query(query, [denominacion,id], function(err) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        res.redirect("/oficinas");
+    })
+}
+
+const listoficina = (req, res, next) => {
+    const db = req.app.get("db");
+    const query = "SELECT * from oficina";
+    db.query(query, function(err, rows) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        res.render("oficinas", { oficinas: rows, title: "Lista" });
+    })
+}
+
+const getDeleteOficina = (req, res, next) => {
+    var db = req.app.get('db');
+    var id = req.params.id;
+    db.query("SELECT * FROM oficina WHERE id=?", id, function(err, rows) {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        res.render('del', { item: rows[0], title: "Borrar" });
+    });
+}
+const postDeleteOficina = function(req, res, next) {
+    var db = req.app.get('db');
+    var id = req.params.id;
+    db.query("DELETE FROM oficina WHERE id=?", id, function(err) {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        res.redirect('/oficinas');
+    });
+}
 
 module.exports = {
     listPersonas,
@@ -132,5 +184,10 @@ module.exports = {
     buscarPersona,
     buscarPersonaResultados,
 
-    tablaOficina
+    tablaOficina,
+    listoficina,
+    agregarOficina,
+    postAgregarOficina,
+    getDeleteOficina,
+    postDeleteOficina
 };
